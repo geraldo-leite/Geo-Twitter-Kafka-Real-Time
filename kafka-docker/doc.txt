@@ -1,0 +1,14 @@
+***Subindo o Container Kafka (zookeeper e kafka) - Executar na pasta onde esta o docker-compose.yml
+>>>docker-compose up -d
+
+***Acessando o terminal via container
+>>>docker exec -it kafka-docker_kafka_1 /bin/sh
+
+***Criando o Tópico Kafka
+kafka-topics --create --topic twitterdata1  --partitions 3 --replication-factor 1 --if-not-exists --zookeeper zookeeper:2181
+
+***Listando os Tópicos
+kafka-topics --list --zookeeper zookeeper:2181
+
+***Produzindo as mensagens
+>>>kafka-console-consumer --bootstrap-server localhost:9092 --topic twitterdata1 --from-beginning

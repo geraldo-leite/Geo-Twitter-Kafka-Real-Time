@@ -1,0 +1,23 @@
+**Windows**
+Caminho da Pasta Kafka ******
+C:\BigDataLocal\kafka\bin\windows
+
+Execute o servidor Zookeper: *******
+zookeeper-server-start.bat ../../config/zookeeper.properties
+
+Em seguida, execute o servidor Kafka: *******
+kafka-server-start.bat ../../config/server.properties
+
+Crie um tópico:
+kafka-topics.bat --zookeeper localhost:2181 --topic twitterdata1 --create -partitions 3 --replication-factor 1
+
+Listar tópicos:
+kafka-topics.bat --list --zookeeper localhost:2181
+
+Criando o kafka consumer
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic twitterdata1 --from-beginning
+
+excluir um tópico
+#* Inserir via editor de texto em: /config/server.properties
+< delete.topic.enable=true >
+kafka-topics.bat --zookeeper localhost:2181 --delete --topic 'inserir nome do topico'
