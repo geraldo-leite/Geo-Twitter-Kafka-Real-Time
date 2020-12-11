@@ -87,9 +87,5 @@ def preprocessamento(texto):
     lista = ' '.join([str(elemento) for elemento in lista if not elemento.isdigit()])
     return lista
 
-teste = 'A vida é boa com cerveja'
-pre = preprocessamento(teste)
-final = modelo_pln(pre)
-
 print('Resultado 1:{}, Resultado 2: {}'.format(pre, final.cats))
 
